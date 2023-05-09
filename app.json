@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rnskia",
-    "slug": "rnskia",
+    "name": "reactNativeStart",
+    "slug": "reactNativeStart",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
