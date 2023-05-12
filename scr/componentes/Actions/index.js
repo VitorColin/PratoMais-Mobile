@@ -1,66 +1,69 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
-import { AntDesign, Feather } from '@expo/vector-icons' 
+import { AntDesign, Feather } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native';
 
-export default function Actions(){
-    return(
+export default function Actions() {
+    const { Localization } = useNavigation()
+    return (
         <ScrollView style={styles.container} horizontal={true} showsHorizontalScrollIndicator={false}>
-           
+
             <TouchableOpacity style={styles.actionButton}>
                 <View style={styles.areaButton}>
-                <Feather name="percent" size={26} color="#8000ff" />
+                    <Feather name="percent" size={26} color="#8000ff" />
                 </View>
                 <Text style={styles.labelButton}>Descontos</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.actionButton}>
+            <TouchableOpacity onPress={Localization} style={styles.actionButton}>
                 <View style={styles.areaButton}>
-                    <AntDesign name="enviroment" size={26} color="#8000ff"/>
+                    <AntDesign name="enviroment" size={26} color="#8000ff" />
                 </View>
                 <Text style={styles.labelButton}>Localização</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.actionButton}>
                 <View style={styles.areaButton}>
-                    <AntDesign name="like1" size={26} color="#8000ff"/>
+                    <AntDesign name="like1" size={26} color="#8000ff" />
                 </View>
                 <Text style={styles.labelButton}>Favoritos</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.actionButton}>
                 <View style={styles.areaButton}>
-                    <AntDesign name="like1" size={26} color="#8000ff"/>
+                    <AntDesign name="profile" size={26} color="#8000ff" />
                 </View>
                 <Text style={styles.labelButton}>Extrato</Text>
             </TouchableOpacity>
         </ScrollView>
     )
+
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         maxHeight: 84,
         marginBottom: 14,
         marginTop: 18,
         paddingEnd: 14,
         paddingStart: 18,
     },
-    actionButton:{
+    actionButton: {
         alignItems: 'center',
-        marginRight: 70,
+        marginRight: 50,
     },
-    areaButton:{
-        backgroundColor: '#000',
-        height: 40,
-        width: 40,
+    areaButton: {
+        backgroundColor: '#ccc8c8',
+        height: 60,
+        width: 60,
         borderRadius: 40,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    labelButton:{
+    labelButton: {
         marginTop: 8,
         textAlign: 'center',
         fontWeight: 'bold',
-        color:'#FFF'
+        color: '#FFF'
     }
 })

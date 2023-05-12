@@ -54,6 +54,8 @@ const styles = StyleSheet.create({
         paddingTop: 22,
         paddingBottom: 22,
         zIndex: 99,
+        borderBottomWidth: 0.5,
+        borderBottomColor: '#aba6a6',
 
     },
     itemTitle:{

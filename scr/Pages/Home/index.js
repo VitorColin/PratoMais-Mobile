@@ -2,12 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, FlatList} from 'react-native';
 
-import Header from '../../componentes/Header'
+import Header from '../../componentes/Header';
 import Balance from '../../componentes/Balance';
 import Moviments from '../../componentes/Moviments';
 import Actions from '../../componentes/Actions';
 
-const list = [
+const list=[    
     {
         id: 1,
         label: 'Gratificação',
