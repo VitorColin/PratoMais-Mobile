@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, FlatList} from 'react-native';
+import { StyleSheet, Text, View, ScrollView,Button , FlatList, TouchableOpacity} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import Header from '../../componentes/Header';
 import Balance from '../../componentes/Balance';
@@ -31,15 +32,19 @@ const list=[
     }
 ]
 
-export default function Home(){
+const Home = ({navigation})=>{
     return(
         <View style={styles.container}>
             <Header name="Vitor Colin"/>
             
+
             <Balance saldo="10.000,00" gastos="-100,00"/>
             
-            <Actions/>
+            <Actions navigation={navigation}/>
+            <View  style={styles.container}>
+            
             <Text style={styles.title}>Ultimas movimentações</Text>
+
             <FlatList
             style={styles.list}
             data={list}
@@ -47,20 +52,33 @@ export default function Home(){
             showsVerticalScrollIndicator={false}
             renderItem={ ({ item }) => <Moviments data={item} />}
             />  
+            </View>
+           
+            {/* <TouchableOpacity onPress={()=>{
+                console.log(navigation)
+                if (!!navigation){
+                    console.log(navigation.navigate)
+                    if (!!navigation.navigate){
+                        navigation.navigate('Localization')
+                    }
+                }
+            }}><Text>AQUI</Text></TouchableOpacity> */}
         </View>
     )
 }
+export default Home
 
 const  styles = StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: '#000',
-        color:'#FFF'
+        color:'#FFF',
+        marginTop: 0
     },
     title:{
         fontSize: 30,
         fontWeight: 'bold',
-        margin: 14,
+        margin: 15,
         color:'#FFF'
 
     },

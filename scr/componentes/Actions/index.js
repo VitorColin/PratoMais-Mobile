@@ -3,8 +3,7 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-nati
 import { AntDesign, Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native';
 
-export default function Actions() {
-    const { Localization } = useNavigation()
+export default function Actions({ navigation }) {
     return (
         <ScrollView style={styles.container} horizontal={true} showsHorizontalScrollIndicator={false}>
 
@@ -15,7 +14,15 @@ export default function Actions() {
                 <Text style={styles.labelButton}>Descontos</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={Localization} style={styles.actionButton}>
+            <TouchableOpacity onPress={() => {
+                console.log(navigation)
+                if (!!navigation) {
+                    console.log(navigation.navigate)
+                    if (!!navigation.navigate) {
+                        navigation.navigate('Localization')
+                    }
+                }
+            }} style={styles.actionButton}>
                 <View style={styles.areaButton}>
                     <AntDesign name="enviroment" size={26} color="#8000ff" />
                 </View>
