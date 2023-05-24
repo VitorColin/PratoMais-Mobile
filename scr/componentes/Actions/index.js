@@ -36,7 +36,8 @@ export default function Actions({ navigation }) {
                 <Text style={styles.labelButton}>Favoritos</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.actionButton}>
+            <TouchableOpacity onPress={() => { navigation.navigate('Extrato')}}
+                style={styles.actionButton}>
                 <View style={styles.areaButton}>
                     <AntDesign name="profile" size={26} color="#8000ff" />
                 </View>

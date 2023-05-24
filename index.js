@@ -7,6 +7,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './scr/Pages/Home';
 import Localization from './scr/Pages/Localization';
 import Actions from './scr/componentes/Actions';
+import Extrato from './scr/Pages/Extrato';
+
 const Stack = createNativeStackNavigator();
 
 export default function App1(props) {
@@ -27,6 +29,7 @@ export default function App1(props) {
             >
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Localization' component={Localization} />
+        <Stack.Screen name='Extrato' component={Extrato} />
       </Stack.Navigator>
     </NavigationContainer>
     </>
