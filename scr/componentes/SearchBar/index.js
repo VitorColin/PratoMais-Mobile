@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import { ListItem, SearchBar } from "react-native-elements";
-  
+
+import Moviments from '../../componentes/Moviments';
+
 const DATA = [
     {
         id: 1,
@@ -46,81 +48,85 @@ const DATA = [
         type: 0 // Débito
     }
 ];
-  
-const Item = ({ title }) => {
-  return (
-    <View style={styles.item}>
-        <Text>{title}</Text>
-    </View>
-  );
-};
-  
-const renderItem = ({ item }) => <Item title={item.title} />;
-class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: false,
-      data: DATA,
-      error: null,
-      searchValue: "",
-    };
-    this.arrayholder = DATA;
-  }
-  
-  searchFunction = (text) => {
-    const updatedData = this.arrayholder.filter((item) => {
-      const item_data = `${item.title.toUpperCase()})`;
-      const text_data = text.toUpperCase();
-      return item_data.indexOf(text_data) > -1;
-    });
-    this.setState({ data: updatedData, searchValue: text });
-  };
-  
-  render() {
+
+const Item = ({ title, date, value }) => {
     return (
-      <View style={styles.container}>
-        <SearchBar
-          placeholder="..."
-          lightTheme
-          round
-          value={this.state.searchValue}
-          onChangeText={(text) => this.searchFunction(text)}
-          autoCorrect={false}
-        />
-        <FlatList
-          data={this.state.data}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-        />
-      </View>
+        <View style={styles.item}>
+            <Text style={styles.text}>{date}</Text>
+            <Text style={styles.text}>{title}</Text>
+            <Text style={styles.text}>{value}</Text>
+        </View>
     );
-  }
+};
+
+// const renderItem = ({ item }) => <Item title={item.title} date={item.date} value={item.value} />;
+const renderItem =  ({ item }) => <Moviments data={item} />;
+class Search extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: false,
+            data: DATA,
+            error: null,
+            searchValue: "",
+        };
+        this.arrayholder = DATA;
+    }
+
+    searchFunction = (text) => {
+        const updatedData = this.arrayholder.filter((item) => {
+            const item_data = `${item.title.toUpperCase()})`;
+            const text_data = text.toUpperCase();
+            return item_data.indexOf(text_data) > -1;
+        });
+        this.setState({ data: updatedData, searchValue: text});
+    };
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <SearchBar
+                    placeholder="..."
+                    round
+                    value={this.state.searchValue}
+                    onChangeText={(text) => this.searchFunction(text)}
+                    autoCorrect={false}
+                />
+                <FlatList
+                    style={styles.list}
+                    data={this.state.data}
+                    value={this.state.value}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.id}
+                />
+            </View>
+        );
+    }
 }
-  
+
 export default Search;
-  
+
 const styles = StyleSheet.create({
     container: {
-        marginTop: 30,
-        padding: 2,
-    },
-    title: {
-        fontSize: 30,
-        fontWeight: 'bold',
-        margin: 40,
-        color: '#FFF'
+        flex: 1,
+        backgroundColor: '#000',
+        marginTop: 0,
 
     },
     list: {
-        marginStart: 14,
-        marginEnd: 14,
+        fontSize: 30,
+        fontWeight: 'bold',
+        backgroundColor: '#000',
+    },
+    text: {
+        backgroundColor: '#000',
+        fontSize: 18,
+        fontWeight: 'bold',
         color: '#FFF'
     },
     item: {
-        backgroundColor: "#f5f520",
+        backgroundColor: "#000",
         padding: 20,
         marginVertical: 8,
-        marginHorizontal: 16,
-      },
+    },
 });
