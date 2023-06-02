@@ -53,14 +53,14 @@ const Item = ({ title, date, value }) => {
     return (
         <View style={styles.item}>
             <Text style={styles.text}>{date}</Text>
-            <Text style={styles.text}>{title}</Text>
-            <Text style={styles.text}>{value}</Text>
+            <Text style={styles.text2}>{title} {value}</Text>
         </View>
     );
 };
 
-// const renderItem = ({ item }) => <Item title={item.title} date={item.date} value={item.value} />;
-const renderItem =  ({ item }) => <Moviments data={item} />;
+console.log(Item);
+const renderItem = ({ item }) => <Item title={item.title} date={item.date} value={item.value} />;
+// const renderItem = ({ item }) => <Moviments data={item} />;
 class Search extends Component {
     constructor(props) {
         super(props);
@@ -96,6 +96,7 @@ class Search extends Component {
                     style={styles.list}
                     data={this.state.data}
                     value={this.state.value}
+                    title={this.state.title}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id}
                 />
@@ -122,6 +123,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#000',
         fontSize: 18,
         fontWeight: 'bold',
+        color: '#FFF'
+    },
+    text2: {
+        backgroundColor: '#000',
+        fontSize: 18,
+        fontWeight: 'bold',
+        justifyContent:'space-between',
+        display: 'flex',
         color: '#FFF'
     },
     item: {

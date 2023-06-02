@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { View } from 'react-native';
+import { TouchableOpacity, View, StyleSheet, Text } from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
+import { AntDesign, Feather } from '@expo/vector-icons';
 import {
     requestForegroundPermissionsAsync,
     getCurrentPositionAsync,
@@ -61,6 +62,14 @@ export default function Localization() {
                     />
                 </MapView>
             }
+            <View>
+                <TouchableOpacity><View style={styles.areaButton}>
+                    <AntDesign name="like1" size={26} color="#8000ff" />
+                </View>
+                <Text>Favoritos</Text></TouchableOpacity>
+            </View>
+            
         </View>
     );
+    
 }
