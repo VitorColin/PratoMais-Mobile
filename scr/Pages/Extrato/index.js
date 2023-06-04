@@ -115,43 +115,45 @@ const list = [
     }
 ]
 
-const Extrato = ({ navigation }) => {
+const Extrato = ({ navigation, route }) => {
+    const telaSelecionada = route.params.telaSelecionada;
+    console.log(telaSelecionada);
+
     return (
-            <View style={styles.container}>
+        <View style={styles.container}>
+            {telaSelecionada === 1 && (
+                <Text style={styles.title}>Descontos</Text>
+            )}
 
+            {telaSelecionada === 2 && (
+                <Text style={styles.title}>Favoritos</Text>
+            )}
+
+            {telaSelecionada === 3 && (
                 <Text style={styles.title}>Extrato</Text>
+            )}
 
-                <Search/>
+            <Search telaSelecionada={telaSelecionada} />
+        </View>
+    );
+};
 
-                {/* <FlatList
-                    style={styles.list}
-                    data={list}
-                    keyExtractor={(item) => String(item.id)}
-                    showsVerticalScrollIndicator={false}
-                    renderItem={({ item }) => <Moviments data={item} />}
-                /> */}
-            </View>
-    )
-}
-export default Extrato
+export default Extrato;
+
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#000',
+        backgroundColor: '#8000ff',
         color: '#FFF',
-        marginTop: 0
+        marginTop: 0,
+        paddingTop: 50,
     },
     title: {
         fontSize: 30,
         fontWeight: 'bold',
-        margin: 40,
-        color: '#FFF'
-
-    },
-    list: {
-        marginStart: 14,
-        marginEnd: 14,
-        color: '#FFF'
+        color: '#FFF',
+        paddingBottom: 10,
+        paddingLeft: 10,
     }
 })

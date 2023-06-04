@@ -7,7 +7,8 @@ export default function Actions({ navigation }) {
     return (
         <ScrollView style={styles.container} horizontal={true} showsHorizontalScrollIndicator={false}>
 
-            <TouchableOpacity style={styles.actionButton}>
+            <TouchableOpacity onPress={() => { navigation.navigate('Extrato',{telaSelecionada:1})}}
+                style={styles.actionButton}>
                 <View style={styles.areaButton}>
                     <Feather name="percent" size={26} color="#8000ff" />
                 </View>
@@ -29,14 +30,15 @@ export default function Actions({ navigation }) {
                 <Text style={styles.labelButton}>Localização</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.actionButton}>
+            <TouchableOpacity onPress={() => { navigation.navigate('Extrato',{telaSelecionada:2})}}
+                style={styles.actionButton}>
                 <View style={styles.areaButton}>
                     <AntDesign name="like1" size={26} color="#8000ff" />
                 </View>
                 <Text style={styles.labelButton}>Favoritos</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => { navigation.navigate('Extrato')}}
+            <TouchableOpacity onPress={() => { navigation.navigate('Extrato',{telaSelecionada:3})}}
                 style={styles.actionButton}>
                 <View style={styles.areaButton}>
                     <AntDesign name="profile" size={26} color="#8000ff" />
