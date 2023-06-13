@@ -4,29 +4,38 @@ export const styles = StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: '#000',
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     map:{
         flex: 1,
         width: '99%',
     },
-    actionButton: {
-        alignItems: 'center',
-        marginRight: 50,
-    },
-    areaButton: {
-        backgroundColor: '#ccc8c8',
-        height: 60,
-        width: 60,
-        borderRadius: 40,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    labelButton: {
-        marginTop: 8,
-        textAlign: 'center',
+    title:{
+        fontSize: 30,
         fontWeight: 'bold',
-        color: '#FFF'
-    }
+        margin: 15,
+        color:'#FFF',
+
+    },
+    list:{
+        color:'#FFF',
+    },
+    lista: {
+        backgroundColor: "#000",
+        padding: 20,
+        marginVertical: 8,
+    },
+    text: {
+        backgroundColor: '#000',
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#FFF',
+    },
+    text2: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: '#000',
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#FFF',
+    },
 });

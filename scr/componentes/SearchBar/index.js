@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+    import React, { Component } from "react";
+    import { StyleSheet, Text, View, FlatList } from "react-native";
 import { ListItem, SearchBar } from "react-native-elements";
 
 import Moviments from '../../componentes/Moviments';
@@ -72,7 +72,6 @@ const Item = ({ title, date, value, type }) => {
 
 console.log(Item);
 const renderItem = ({ item }) => <Item title={item.title} date={item.date} value={item.value} type={item.type} />;
-// const renderItem = ({ item }) => <Moviments data={item} />;
 class Search extends Component {
     constructor(props) {
         super(props);

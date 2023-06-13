@@ -75,16 +75,16 @@ const  styles = StyleSheet.create({
         color:'#FFF',
         marginTop: 0
     },
-    title:{
-        fontSize: 30,
-        fontWeight: 'bold',
-        margin: 15,
-        color:'#FFF'
+        title:{
+            fontSize: 30,
+            fontWeight: 'bold',
+            margin: 15,
+            color:'#FFF'
 
-    },
-    list:{
-        marginStart: 14,
-        marginEnd: 14,
-        color:'#FFF'
-    }
+        },
+        list:{
+            marginStart: 14,
+            marginEnd: 14,
+            color:'#FFF'
+        }
 })
