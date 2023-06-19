@@ -6,15 +6,18 @@ export const styles = StyleSheet.create({
         backgroundColor: '#000',
     },
     map:{
-        flex: 1,
+        flex: 1.5,
         width: '99%',
     },
     title:{
-        fontSize: 30,
+        fontSize: 24,
         fontWeight: 'bold',
-        margin: 15,
+        margin: 0,
         color:'#FFF',
-
+        textAlign:'center',
+        display:'flex',
+        paddingBottom:10,
+        paddingTop:10,
     },
     list:{
         color:'#FFF',
